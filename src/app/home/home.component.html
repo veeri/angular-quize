@@ -1,0 +1,45 @@
+<h4>Quiz Master</h4>
+
+<div>
+    <div>
+        <select #categorySelect (change)="update($event)">
+            <option value="default">----</option>
+            <option *ngFor="let item of categoryOptions" [value]="item.id">
+                {{item.name}}
+            </option>
+        </select>
+    </div>
+    <div>
+        <select #difficultySelect (change)="update($event)">
+            <option value="default">----</option>
+            <option value="easy">Easy</option>
+            <option value="medium">medium</option>
+            <option value="hard">hard</option>
+        </select>
+    </div>
+    <div>
+        <button id="createBtn" (click)="createQuiz()">Create</button>
+    </div>
+</div>
+
+
+<div>
+    <div *ngFor="let item of questions; index as i">
+        <div>
+            <h6>{{item.question}}</h6>
+            <div *ngFor="let item of item.incorrect_answers">
+                <button (click)="selectAnswere(i, item)">{{item}}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <p>You selected {{selected}}</p> -->
+
+<!-- <button (click)="onLoadServers(1)" class="btn btn-primary">Load Servers 1</button>
+<button class="btn btn-default" (click)="onLogin()">Login</button>
+<button class="btn btn-default" (click)="onLogout()">Logout</button> -->
+
+<!-- [selected]="prf.prId==='dir'" -->
